@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Progetti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar">
+                <div class="d-flex flex-column p-3">
+                    <h2 class="text-center mb-4">Nuovo Progetto</h2>
+                    <form id="newProjectForm">
+                        <div class="mb-3">
+                            <label for="projectName" class="form-label">Nome Progetto</label>
+                            <input type="text" class="form-control" id="projectName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectDescription" class="form-label">Descrizione</label>
+                            <textarea class="form-control" id="projectDescription" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectState" class="form-label">Stato</label>
+                            <select class="form-select" id="projectState">
+                                <option value="Da Iniziare">Da Iniziare</option>
+                                <option value="In Corso">In Corso</option>
+                                <option value="Completato">Completato</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectStartDate" class="form-label">Data Inizio</label>
+                            <input type="date" class="form-control" id="projectStartDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectEndDate" class="form-label">Data Fine (opzionale)</label>
+                            <input type="date" class="form-control" id="projectEndDate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectPriority" class="form-label">Priorità</label>
+                            <select class="form-select" id="projectPriority">
+                                <option value="Bassa">Bassa</option>
+                                <option value="Media">Media</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Aggiungi Progetto</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 main-content">
+                <div class="container-fluid py-4">
+                    <h1 class="mb-4">📋 Gestione Progetti</h1>
+                    
+                    <!-- Filters -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="stateFilter" class="form-label">Filtra per Stato</label>
+                            <select class="form-select" id="stateFilter" multiple>
+                                <option value="Da Iniziare">Da Iniziare</option>
+                                <option value="In Corso">In Corso</option>
+                                <option value="Completato">Completato</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="priorityFilter" class="form-label">Filtra per Priorità</label>
+                            <select class="form-select" id="priorityFilter" multiple>
+                                <option value="Bassa">Bassa</option>
+                                <option value="Media">Media</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Projects List -->
+                    <div id="projectsList" class="row g-4">
+                        <!-- Projects will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Template -->
+    <template id="projectTemplate">
+        <div class="project-card" data-project-id="">
+            <div class="project-header">
+                <h3 class="project-name"></h3>
+                <div class="project-actions">
+                    <div class="form-check form-switch d-inline-block me-2">
+                        <input class="form-check-input compact-project-toggle" type="checkbox">
+        <div class="col-12 project-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <h5 class="card-title project-name"></h5>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-outline-primary edit-project">
+                                <i class="bi bi-pencil"></i> Modifica
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger delete-project">
+                                <i class="bi bi-trash"></i> Elimina
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-description mb-3"></div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Stato:</strong> <span class="project-state"></span></p>
+                            <p class="mb-1"><strong>Priorità:</strong> <span class="project-priority"></span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Data Inizio:</strong> <span class="project-start-date"></span></p>
+                            <p class="mb-1"><strong>Data Fine:</strong> <span class="project-end-date"></span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Notes Section -->
+                    <div class="notes-section">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="mb-0">Note</h6>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input compact-notes-toggle" type="checkbox">
+                                <label class="form-check-label">Vista Compatta</label>
+                            </div>
+                        </div>
+                        <div class="notes-list"></div>
+                        <button class="btn btn-outline-primary btn-sm add-note mt-3">
+                            <i class="bi bi-plus"></i> Aggiungi Nota
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Note Template -->
+    <template id="noteTemplate">
+        <div class="note-item">
+            <div class="note-header d-flex justify-content-between align-items-start">
+                <div>
+                    <h6 class="note-title mb-1"></h6>
+                    <small class="text-muted note-date"></small>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-primary edit-note">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger delete-note">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="note-content mt-2"></div>
+        </div>
+    </template>
+
+    <!-- Modals -->
+    <div class="modal fade" id="editProjectModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modifica Progetto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProjectForm">
+                        <input type="hidden" id="editProjectId">
+                        <div class="mb-3">
+                            <label for="editProjectName" class="form-label">Nome Progetto</label>
+                            <input type="text" class="form-control" id="editProjectName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editProjectDescription" class="form-label">Descrizione</label>
+                            <textarea class="form-control" id="editProjectDescription" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editProjectState" class="form-label">Stato</label>
+                            <select class="form-select" id="editProjectState">
+                                <option value="Da Iniziare">Da Iniziare</option>
+                                <option value="In Corso">In Corso</option>
+                                <option value="Completato">Completato</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editProjectStartDate" class="form-label">Data Inizio</label>
+                            <input type="date" class="form-control" id="editProjectStartDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editProjectEndDate" class="form-label">Data Fine (opzionale)</label>
+                            <input type="date" class="form-control" id="editProjectEndDate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editProjectPriority" class="form-label">Priorità</label>
+                            <select class="form-select" id="editProjectPriority">
+                                <option value="Bassa">Bassa</option>
+                                <option value="Media">Media</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn btn-primary" id="saveProjectChanges">Salva Modifiche</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="noteModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nota</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="noteForm">
+                        <input type="hidden" id="noteProjectId">
+                        <input type="hidden" id="noteDate">
+                        <div class="mb-3">
+                            <label for="noteTitle" class="form-label">Titolo</label>
+                            <input type="text" class="form-control" id="noteTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="noteContent" class="form-label">Contenuto</label>
+                            <textarea class="form-control" id="noteContent" rows="15"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn btn-primary" id="saveNote">Salva</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 

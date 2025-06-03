@@ -1,0 +1,255 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #fff;
+    border-right: 1px solid #dee2e6;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+}
+
+/* Main Content Styles */
+.main-content {
+    padding: 20px;
+}
+
+/* Project Card Styles */
+.project-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: block;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.project-card.compact {
+    width: 100%;
+    display: block;
+    padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+    min-height: unset;
+    height: auto !important;
+    box-sizing: border-box;
+}
+
+.project-card.compact .project-header {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.project-card.compact .project-name {
+    margin-bottom: 0.2rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    white-space: normal;
+    display: block;
+}
+
+.project-card.compact .compact-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 0;
+}
+
+.project-card.compact .project-state,
+.project-card.compact .project-priority {
+    display: inline-block;
+    font-size: 1rem;
+    margin-left: 0;
+}
+
+.project-card.compact .project-actions {
+    margin-top: 0;
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.project-card.compact .project-description,
+.project-card.compact .project-dates,
+.project-card.compact .notes-section,
+.project-card.compact .compact-notes-toggle,
+.project-card.compact .notes-list,
+.project-card.compact .add-note,
+.project-card.compact h4 {
+    display: none !important;
+}
+
+.project-header {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.project-name {
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    white-space: normal;
+    display: block;
+}
+
+.project-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+/* Notes Section Styles */
+.notes-section {
+    border-top: 1px solid #dee2e6;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.note-item {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.note-item.compact {
+    padding: 8px 15px;
+}
+
+.note-item.compact .note-content {
+    display: none;
+}
+
+.note-title {
+    margin: 0;
+    color: #495057;
+}
+
+.note-date {
+    font-size: 0.8rem;
+}
+
+.note-content {
+    color: #6c757d;
+}
+
+/* Form Styles */
+.form-control:focus, .form-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* Button Styles */
+.btn-group .btn {
+    margin-left: 5px;
+}
+
+/* Priority Colors */
+.priority-high {
+    color: #dc3545;
+}
+
+.priority-medium {
+    color: #ffc107;
+}
+
+.priority-low {
+    color: #28a745;
+}
+
+/* State Colors */
+.state-completed {
+    color: #28a745;
+}
+
+.state-in-progress {
+    color: #17a2b8;
+}
+
+.state-not-started {
+    color: #6c757d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        height: auto;
+        position: relative;
+    }
+    
+    .main-content {
+        padding: 10px;
+    }
+}
+
+/* Markdown Content Styles */
+.markdown-content {
+    line-height: 1.6;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.markdown-content p {
+    margin-bottom: 1em;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    margin-bottom: 1em;
+    padding-left: 2em;
+}
+
+.markdown-content code {
+    background-color: #f8f9fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+.markdown-content pre {
+    background-color: #f8f9fa;
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+/* Filter Styles */
+#stateFilter,
+#priorityFilter {
+    height: auto;
+    min-height: 38px;
+}
+
+/* Modal Styles */
+.modal-content {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+} 

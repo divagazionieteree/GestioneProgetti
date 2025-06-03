@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "nome": "Corso Birra",
+        "descrizione": "/home/divagazionieteree/MEGA/Progetti Software/Lezione Birra/",
+        "stato": "In Corso",
+        "data_inizio": "2025-03-24",
+        "data_fine": "2025-06-22",
+        "priorità": "Alta",
+        "data_creazione": "2025-05-28 23:14:49",
+        "note": [
+            {
+                "data": "2025-05-28 23:26:08",
+                "contenuto": "Definite date dell'esame\n- 5 Giugno sera online \n- 023 giugno Incontro in presenza\n- 14 luglio Esame"
+            }
+        ]
+    },
+    {
+        "nome": "Esame Sommelier Birra",
+        "descrizione": "",
+        "stato": "In Corso",
+        "data_inizio": "2025-06-02",
+        "data_fine": "2025-07-01",
+        "priorità": "Alta",
+        "note": [
+            {
+                "data": "2025-06-02 21:40:28",
+                "contenuto": "- il 90% delle birre ha una quantità di acqua ninima dell'87%\n- Impalcatura su cui poggiano tutte le altre sensazioni\n- Contiene Elementi disciolti -- Sali minerali\n    - Acque Dure -- Ricche di sali\n    - Acque Dolci o morbide  -- povere di sali \n-  Attenzione al cloro dell'acqua con il sapore di medicinale\n- la quantità di acqua totale è di circa 6-7 volte la quantitl di malto\n- in passato la composizione dei sali nell'acqua condizionava le ricette possibili della birra, ora invece abbiamo la possibilità di modificarla, si può fare in una versione semplice semplicemente aggiungendo i sali necessari ad arrivare al profilo desiderato (facile nelle IPA che hanno bisogno di acque dure) o tecnologicamente avanzata togliendo prima i sali presenti (con osmosi inversa) e poi riaggiungerli (fondamentale nelle pils)\n\n#### Sali Minerali\n- **Calcio**  Purezza gustativa, Accentua il maltato, Favorisce la flocculazione\n- **Magnesio**  Nutriente per il lievito, Favorisce la fermentazione regolare e pulita \n- **Sodio**  Intensifica il sapore della birra, rotondità e corpo\n- **Solfati** Nota gessosa, amplifica amaro e pienezza gustativa, adatto a ricevere alte quantità di luppolo\n- **Carbonati**  Ruvidezza gustativa, sapore amaro e aspro\n- **Cloruri**  Imcrementano sapore, pienezza, stabilità e limpidezza\n\n#### Luoghi Iconici\n- **Plzen**\n- **Monaco**\n- **Dortmund**\n- **Burton Upon Trent**\n- **Dublino**\n\n\n",
+                "titolo": "Materie Prime - Acqua"
+            }
+        ],
+        "id": 2,
+        "data_creazione": "2025-06-02 21:37:38"
+    }
+]
